@@ -1,0 +1,556 @@
+<header class="font-sans bg-orange-600 text-white">
+  <nav class="flex items-center justify-between p-6 md:px-10">
+    <div class="flex items-center space-x-2">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk50Ut-wJKwbca3BTPssDUl_fqnsEE_D2tcw&s"
+        alt="Swiggy Logo"
+        class="h-8 w-auto"
+      />
+      <span class="text-lg font-bold">Swiggy</span>
+    </div>
+    <div class="hidden md:flex items-center space-x-4">
+      <a href="#" class="hover:underline">Swiggy Corporate</a>
+      <a href="#" class="hover:underline">Partner with us</a>
+      <a href="#" class="hover:underline">Favourites</a>
+      <button
+        class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-orange-600 transition-colors"
+        aria-label="Download the Swiggy App"
+      >
+        Get the App
+      </button>
+
+      <!-- Signup/Login Toggle Button -->
+      <button
+        class="bg-black text-white px-4 py-2 rounded-full"
+        (click)="triggerOpenSignup()"
+      >
+        Signup / Login
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="text-center px-4 py-10 md:py-16 bg-orange-600">
+  <h1 class="text-2xl md:text-5xl font-bold">
+    Order food & groceries. Discover<br />
+    best restaurants. Swiggy it!
+  </h1>
+  <div
+    class="mt-6 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4"
+  >
+    <input
+      type="text"
+      placeholder="Enter your delivery location"
+      class="px-4 py-3 rounded-full text-gray-800 w-full md:w-80 focus:outline-none"
+      aria-label="Delivery location"
+    />
+    <input
+      type="text"
+      placeholder="Search for restaurant, item or more"
+      class="px-4 py-3 rounded-full text-gray-800 w-full md:w-80 focus:outline-none"
+      aria-label="Search for restaurant or item"
+    />
+  </div>
+</section>
+
+<!-- Service Cards -->
+<section
+  class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 px-4 pb-10 bg-orange-600"
+>
+  <!-- Food Delivery Card -->
+  <div
+    class="bg-white text-gray-800 p-4 rounded-2xl shadow-lg w-64 md:w-48 text-center"
+  >
+    <h3 class="text-lg font-bold">FOOD DELIVERY</h3>
+    <p class="text-sm">FROM RESTAURANTS</p>
+    <p class="text-orange-600 font-bold text-sm mt-2">UPTO 60% OFF</p>
+    <img
+      src="https://t3.ftcdn.net/jpg/06/12/86/36/360_F_612863665_APTs6EyS5BKPPKsXs9vTuNJHvf9lNBo9.jpg"
+      alt="Food Delivery"
+      class="h-16 mx-auto mt-4"
+    />
+    <button class="text-orange-600 mt-4">&#8594;</button>
+  </div>
+
+  <!-- Instamart Card -->
+  <div
+    class="bg-white text-gray-800 p-4 rounded-2xl shadow-lg w-64 md:w-48 text-center"
+  >
+    <h3 class="text-lg font-bold">INSTAMART</h3>
+    <p class="text-sm">INSTANT GROCERY</p>
+    <p class="text-orange-600 font-bold text-sm mt-2">UPTO 60% OFF</p>
+    <img
+      src="https://img.freepik.com/free-vector/shopping-supermarket-cart-with-grocery-pictogram_1284-11697.jpg?semt=ais_hybrid"
+      alt="Instamart"
+      class="h-16 mx-auto mt-4"
+    />
+    <button class="text-orange-600 mt-4">&#8594;</button>
+  </div>
+
+  <!-- Dineout Card -->
+  <div
+    class="bg-white text-gray-800 p-4 rounded-2xl shadow-lg w-64 md:w-48 text-center"
+  >
+    <h3 class="text-lg font-bold">DINEOUT</h3>
+    <p class="text-sm">EAT OUT & SAVE MORE</p>
+    <p class="text-orange-600 font-bold text-sm mt-2">UPTO 50% OFF</p>
+    <img
+      src="https://static.vecteezy.com/system/resources/thumbnails/008/028/321/small/couple-in-pizzeria-or-fast-food-restaurant-enjoying-dinner-and-communication-italian-cuisine-cafe-or-street-cafeteria-and-people-cartoon-characters-cookery-and-eating-out-flat-illustration-vector.jpg"
+      alt="Dineout"
+      class="h-16 mx-auto mt-4"
+    />
+    <button class="text-orange-600 mt-4">&#8594;</button>
+  </div>
+
+  <!-- Genie Card -->
+  <div
+    class="bg-white text-gray-800 p-4 rounded-2xl shadow-lg w-64 md:w-48 text-center"
+  >
+    <h3 class="text-lg font-bold">GENIE</h3>
+    <p class="text-sm">PICK-UP & DROP</p>
+    <p class="text-orange-600 font-bold text-sm mt-2">UPTO 50% OFF</p>
+    <img
+      src="https://cdn.pixabay.com/photo/2024/06/26/23/36/package-8856091_1280.png"
+      alt="Genie"
+      class="h-16 mx-auto mt-4"
+    />
+    <button class="text-orange-600 mt-4">&#8594;</button>
+  </div>
+</section>
+
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="container mx-auto p-4">
+  <!-- Title -->
+  <h1 class="text-2xl font-bold text-center mb-6">
+    Order Our Best Food Options
+  </h1>
+
+  <!-- Grid of Food Options -->
+  <div
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+  >
+    <!-- Food Option Card -->
+    <a
+      *ngFor="let food of foodOptions"
+      [routerLink]="['/food', food.route]"
+      class="block text-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-200 hover:bg-gray-50"
+    >
+      <!-- Food Image -->
+      <img
+        [src]="food.image"
+        alt="{{ food.name }}"
+        class="w-full h-24 object-cover rounded-lg mb-2"
+      />
+
+      <!-- Food Name -->
+      <p class="font-semibold text-gray-700">{{ food.name }}</p>
+    </a>
+  </div>
+</div>
+
+<div class="container mx-auto p-4 bg-gray-50">
+  <!-- Restaurants Section -->
+  <section>
+    <h2 class="text-2xl font-bold mb-6 text-left">
+      Discover best restaurants on Dineout
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Restaurant Cards -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/qems028i3da5rxf81rbp"
+          alt="Restaurant Image"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Ce La Vie Kitchen & Bar</h3>
+          <p class="text-sm text-gray-600">Asian · Continental</p>
+          <p class="text-sm text-gray-500">Connaught Place, Delhi</p>
+          <p class="text-sm text-gray-500">₹2000 for two · 4.5 km</p>
+          <div
+            class="mt-2 text-green-600 font-medium text-xs bg-green-100 rounded-md px-2 py-1 inline-block"
+          >
+            Flat 35% off on pre-booking
+          </div>
+          <p class="mt-1 text-xs text-gray-500">
+            Up to 15% off with bank offers
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/25/aa75acc7-4ff2-4149-95c1-1342f6454b4d_13552.jpg"
+          alt="Restaurant Image"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">The Embassy</h3>
+          <p class="text-sm text-gray-600">European · North Indian</p>
+          <p class="text-sm text-gray-500">Connaught Place, Delhi</p>
+          <p class="text-sm text-gray-500">₹1800 for two · 3.8 km</p>
+          <div
+            class="mt-2 text-green-600 font-medium text-xs bg-green-100 rounded-md px-2 py-1 inline-block"
+          >
+            Flat 45% off on walk-in
+          </div>
+          <p class="mt-1 text-xs text-gray-500">
+            Up to 15% off with bank offers
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/t25no0ovmevr0qb5v8e7"
+          alt="Restaurant Image"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">My Bar Square</h3>
+          <p class="text-sm text-gray-600">Finger Food · North Indian</p>
+          <p class="text-sm text-gray-500">Connaught Place, Delhi</p>
+          <p class="text-sm text-gray-500">₹2000 for two · 4.2 km</p>
+          <div
+            class="mt-2 text-green-600 font-medium text-xs bg-green-100 rounded-md px-2 py-1 inline-block"
+          >
+            Flat 15% off on pre-booking
+          </div>
+          <p class="mt-1 text-xs text-gray-500">
+            Up to 15% off with bank offers
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/rqlwvsmzcfxbg9u6ajgm"
+          alt="Restaurant Image"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">DR Zombie</h3>
+          <p class="text-sm text-gray-600">Indian · North Indian</p>
+          <p class="text-sm text-gray-500">Connaught Place, Delhi</p>
+          <p class="text-sm text-gray-500">₹1400 for two · 4.6 km</p>
+          <div
+            class="mt-2 text-green-600 font-medium text-xs bg-green-100 rounded-md px-2 py-1 inline-block"
+          >
+            Flat 25% off on walk-in
+          </div>
+          <p class="mt-1 text-xs text-gray-500">
+            Up to 15% off with bank offers
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div
+  class="flex flex-col items-center justify-center p-4 mt-4 bg-gray-900 text-white"
+>
+  <!-- Header Section -->
+  <div
+    class="flex flex-col md:flex-row items-center max-w-4xl mx-auto space-y-6 md:space-y-0 md:space-x-8"
+  >
+    <!-- Text content -->
+    <div class="text-center md:text-left">
+      <h1 class="text-4xl font-bold mb-2">Get the Swiggy App now!</h1>
+      <p class="text-gray-300">
+        For best offers and discounts curated specially for you.
+      </p>
+    </div>
+
+    <!-- QR code with floating images -->
+    <div
+      class="relative w-40 h-40 md:w-48 md:h-48 bg-white rounded-lg p-4 flex items-center justify-center shadow-lg"
+    >
+      <!-- QR Code Image -->
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9jpy0AaNFkyVJawhNbz_HqiCwjnz1bz-MUQ&s"
+        alt="QR Code"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto bg-white text-gray-800 p-6">
+  <!-- Cities with Food Delivery Section -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Cities with food delivery</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+    >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Bangalore</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Gurgaon</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Hyderabad</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Delhi</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Mumbai</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Pune</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Kolkata</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Chennai</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Ahmedabad</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Chandigarh</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order food online in Jaipur</a
+      >
+      <button
+        class="block py-2 px-4 bg-white border border-orange-500 text-orange-500 rounded-lg shadow-sm text-center hover:bg-orange-50"
+      >
+        Show More ▼
+      </button>
+    </div>
+  </section>
+
+  <!-- Cities with Grocery Delivery Section -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Cities with grocery delivery</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+    >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Bangalore</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Gurgaon</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Hyderabad</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Delhi</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Mumbai</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Pune</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Kolkata</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Chennai</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Ahmedabad</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Chandigarh</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-center hover:bg-gray-50"
+        >Order grocery delivery in Jaipur</a
+      >
+      <button
+        class="block py-2 px-4 bg-white border border-orange-500 text-orange-500 rounded-lg shadow-sm text-center hover:bg-orange-50"
+      >
+        Show More ▼
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-gray-100 py-8">
+  <div class="max-w-screen-xl mx-auto px-4">
+    <div class="flex flex-wrap justify-between items-start gap-8">
+      <!-- Company Logo -->
+      <div class="w-full sm:w-auto flex-shrink-0">
+        <h2 class="text-orange-500 font-bold text-2xl mb-2">Swiggy</h2>
+        <p class="text-gray-500">&copy; 2024 Swiggy Limited</p>
+      </div>
+
+      <!-- Links Section -->
+      <div
+        class="w-full sm:w-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-gray-800"
+      >
+        <!-- Company Links -->
+        <div>
+          <h3 class="font-semibold mb-2">Company</h3>
+          <ul class="space-y-1 text-sm">
+            <li><a href="#" class="hover:text-gray-500">About Us</a></li>
+            <li>
+              <a href="#" class="hover:text-gray-500">Swiggy Corporate</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-500">Careers</a></li>
+            <li><a href="#" class="hover:text-gray-500">Team</a></li>
+            <li><a href="#" class="hover:text-gray-500">Swiggy One</a></li>
+            <li>
+              <a href="#" class="hover:text-gray-500">Swiggy Instamart</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-500">Swiggy Dineout</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-500">Swiggy Genie</a></li>
+            <li><a href="#" class="hover:text-gray-500">Minis</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Links -->
+        <div>
+          <h3 class="font-semibold mb-2">Contact us</h3>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a href="#" class="hover:text-gray-500">Help & Support</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-500">Partner With Us</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-500">Ride With Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Links -->
+        <div>
+          <h3 class="font-semibold mb-2">Legal</h3>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a href="#" class="hover:text-gray-500">Terms & Conditions</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-500">Cookie Policy</a></li>
+            <li>
+              <a href="#" class="hover:text-gray-500">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Life at Swiggy -->
+        <div>
+          <h3 class="font-semibold mb-2">Life at Swiggy</h3>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a href="#" class="hover:text-gray-500">Explore With Swiggy</a>
+            </li>
+            <li><a href="#" class="hover:text-gray-500">Swiggy News</a></li>
+            <li><a href="#" class="hover:text-gray-500">Snackables</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Available Cities and Social Links -->
+      <div class="w-full sm:w-auto flex flex-col gap-4 items-start">
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2">Available In:</h3>
+          <ul class="text-sm text-gray-800 space-y-1">
+            <li>Bangalore</li>
+            <li>Gurgaon</li>
+            <li>Hyderabad</li>
+            <li>Delhi</li>
+            <li>Mumbai</li>
+            <li>Pune</li>
+            <li>
+              <a href="#" class="text-gray-500 hover:text-gray-800"
+                >685 cities</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="flex space-x-4 text-gray-500 text-lg">
+          <a href="#" class="hover:text-gray-800"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="#" class="hover:text-gray-800"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="hover:text-gray-800"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="#" class="hover:text-gray-800"
+            ><i class="fab fa-pinterest"></i
+          ></a>
+          <a href="#" class="hover:text-gray-800"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Download App Links -->
+    <div class="flex flex-col sm:flex-row items-center justify-between mt-8">
+      <p class="text-center text-gray-500 text-sm mb-4 sm:mb-0">
+        For better experience, download the Swiggy app now
+      </p>
+      <div class="flex space-x-4">
+        <a
+          href="#"
+          class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        >
+          App Store
+        </a>
+        <a
+          href="#"
+          class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        >
+          Google Play
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

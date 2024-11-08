@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from '../../auth/signup/signup.component';
 import { LoginComponent } from '../../auth/login/login.component';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,8 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
+  constructor(private router: Router) {}
+
   foodOptions = [
     {
       name: 'North Indian',
@@ -86,8 +89,12 @@ export class DashboardComponent {
         'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_Shake.png',
     },
   ];
-
   @Output() openSignupEvent = new EventEmitter<void>();
+
+  // Define the missing viewFoodOption method
+  viewFoodOption(foodType: string) {
+    this.router.navigate(['/food', foodType]); // Navigates to FoodOptionComponent
+  }
 
   // Emit event to open the signup form
   triggerOpenSignup() {

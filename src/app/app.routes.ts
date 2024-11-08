@@ -4,7 +4,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FoodOptionComponent } from './component/food-option/food-option.component';
 
 export const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'food/:foodType', component: FoodOptionComponent }, // Route with parameter
-  { path: '**', redirectTo: '' }, // Redirect any unknown route to dashboard
+  { path: '', component: DashboardComponent }, // Root path shows Dashboard
+  { path: 'food/:foodType', component: FoodOptionComponent }, // Displays FoodOptionComponent for each food type
+  { path: '**', redirectTo: '' }, // Redirects unknown paths to Dashboard
 ];

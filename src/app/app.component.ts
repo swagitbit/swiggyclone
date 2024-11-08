@@ -30,19 +30,16 @@ export class AppComponent {
   showSignup = false;
   showLogin = false;
 
-  // Opens the signup form initially
   openSignup() {
     this.showSignup = true;
     this.showLogin = false;
   }
 
-  // Toggles to the login form
   toggleLogin() {
-    this.showSignup = false;
     this.showLogin = true;
+    this.showSignup = false;
   }
 
-  // Resets both forms when closing sidebar
   closeSidebar() {
     this.showSignup = false;
     this.showLogin = false;

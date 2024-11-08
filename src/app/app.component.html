@@ -1,17 +1,12 @@
-<div>
-  <!-- Main navigation with signup/login button -->
-  <app-dashboard (openSignupEvent)="openSignup()"></app-dashboard>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 
-  <!-- Sidebar for signup/login forms -->
-  <div class="sidebar" *ngIf="showSignup || showLogin">
-    <div class="p-4 bg-white w-80 h-full">
-      <app-signup
-        *ngIf="showSignup"
-        (toggleToLogin)="toggleLogin()"
-      ></app-signup>
-      <app-login *ngIf="showLogin" (toggleToSignup)="openSignup()"></app-login>
-    </div>
-    <button class="close-sidebar" (click)="closeSidebar()">X</button>
+<!-- Sidebar for signup/login forms -->
+<div class="sidebar" *ngIf="showSignup || showLogin">
+  <div class="p-4 bg-white w-80 h-full">
+    <app-signup *ngIf="showSignup" (toggleToLogin)="toggleLogin()"></app-signup>
+    <app-login *ngIf="showLogin" (toggleToSignup)="openSignup()"></app-login>
   </div>
+  <button class="close-sidebar" (click)="closeSidebar()">X</button>
 </div>
+
+<router-outlet></router-outlet>

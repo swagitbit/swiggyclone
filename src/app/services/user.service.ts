@@ -10,7 +10,6 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  // Add this method if it's not in the code
   signup(userData: {
     phoneNumber: string;
     email: string;
